@@ -1,0 +1,51 @@
+{
+  "name": "launch-sdk",
+  "version": "1.0.0",
+  "description": "The JS SDK for Variant Launch",
+  "source": "src/VLaunch.ts",
+  "main": "dist/variant-launch.min.js",
+  "targets": {
+    "main": {
+      "context": "browser",
+      "optimize": true,
+      "includeNodeModules": [
+        "gl-matrix",
+        "webxr-polyfill",
+        "@swc/helpers"
+      ]
+    }
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "directories": {},
+  "scripts": {
+    "build": "esbuild src/VLaunch.ts --bundle --minify --tree-shaking=true --sourcemap --outfile=dist/variant-launch.min.js",
+    "build-staging": "npm run build",
+    "build-prod": "npm run build",
+    "watch": "esbuild src/VLaunch.ts --bundle --tree-shaking=true --sourcemap --watch --outfile=dist/variant-launch.min.js"
+  },
+  "repository": { 
+    "type": "git",
+    "url": "git+https://github.com/Variant3d/v-launch-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  
+  "homepage": "https://launch.variant.com",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@playwright/test": "^1.35.0",
+    "@types/jest": "^29.5.0",
+    "@types/webxr": "^0.5.1",
+    "cross-env": "^5.1.3",
+    "esbuild": "^0.17.15",
+    "http-server": "^14.1.1",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "detectincognitojs": "^1.3.0",
+    "gl-matrix": "^2.5.1",
+    "node-fetch": "^3.3.1",
+    "webxr-polyfill": "https://github.com/mozilla-mobile/webxr-polyfill-for-ios-viewer#webxr-ios"
+  }
+}
